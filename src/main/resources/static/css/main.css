@@ -1,0 +1,43 @@
+.center-screen {
+    position: fixed;
+    top: 50%;
+    left: 30%;
+}
+
+table.floatThead-table {
+    background-color: #eee;
+}
+
+.red-text-color {
+    color: red;
+}
+
+.green-text-color {
+    color: green;
+}
+
+body {
+    background-color: white !important;
+}
+
+.right-section-style {
+    color: white !important;
+    background-image: -webkit-linear-gradient(#04519b, #044687 60%, #033769) !important;
+}
+
+.add-client-key-td {
+    width: 80px;
+}
+
+.add-client-value-td {
+    width: 600px;
+}
+
+.pushup {
+    margin-top: -10px;
+}
+
+.section-selected {
+    color: white !important;
+    background-image: -webkit-linear-gradient(#262626, #404040 60%, #595959) !important;
+}

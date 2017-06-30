@@ -1,0 +1,202 @@
+###* @vtlvariable name="invoices" type="java.util.ArrayList<com.example.Objects.Entities.InvoiceObject>" *#
+#* @vtlvariable name="templateUtils" type="com.example.Utils.TemplateUtils" *#
+#* @vtlvariable name="lang" type="java.lang.Integer" *#
+#* @vtlvariable name="pageName" type="java.lang.String" *#
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>$templateUtils.getTranslation($pageName,$lang)</title>
+    #parse("css.vm")
+    #parse("scripts.vm")
+
+</head>
+
+<body>
+
+<div id="wrapper" style="padding-right: 135px">
+
+    #parse("main_navbar.vm")
+
+    <div id="page-wrapper">
+
+        <div class="container-fluid">
+
+            <!-- Page Heading -->
+            <div class="row">
+                <div class="col-lg-12">`
+                    <h1 class="page-header">
+                        <small>$templateUtils.getTranslation("dashboard",$lang)</small>
+                    </h1>
+                    <h3>
+                        $templateUtils.getTranslation("hello",$lang)
+                         $consumer.name,
+                    </h3>
+
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading" style="background-image: -webkit-linear-gradient(#337ab7, #3277b3 60%, #224f77)">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <i class="fa fa-comments fa-5x"></i>
+                                </div>
+                                <div class="col-xs-9 text-right">
+                                    <div class="huge" style="font-size: 28px">$consumer.memadClientObject.name</div>
+                                    <div>$templateUtils.getTranslation("association",$lang)</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <a href="/client-details">
+                            <div class="panel-footer">
+                                <span class="pull-left">$templateUtils.getTranslation("client.details",$lang)</span>
+                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                <div class="clearfix"></div>
+                            </div>
+                        </a>
+
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="panel panel-green">
+                        <div class="panel-heading" style="background-image: -webkit-linear-gradient(#5cb85c, #4eb14e 60%, #367c36)">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <i class="fa fa-tasks fa-5x"></i>
+                                </div>
+                                <div class="col-xs-9 text-right">
+                                    <div class="huge" style="font-size: 28px">$templateUtils.getTranslation("invoices",$lang)</div>
+                                    <div>$templateUtils.getTranslation("invoices.history",$lang)</div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="invoices-history">
+                            <div class="panel-footer">
+                                <span class="pull-left">$templateUtils.getTranslation("details",$lang)</span>
+                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                <div class="clearfix"></div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="panel panel-yellow">
+                        <div class="panel-heading" style="background-image: -webkit-linear-gradient(#f0ad4e, #efa743 60%, #bc7410)">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <i class="fa fa-shopping-cart fa-5x"></i>
+                                </div>
+                                <div class="col-xs-9 text-right">
+                                    <div class="huge" style="font-size: 28px">$averageInvoice $templateUtils.getTranslation("NIS",$lang)</div>
+                                    <div>$templateUtils.getTranslation("average.invoice",$lang)</div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="/temporary">
+                            <div class="panel-footer">
+                                <span class="pull-left">$templateUtils.getTranslation("details",$lang)</span>
+                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                <div class="clearfix"></div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="panel panel-red">
+                        <div class="panel-heading" style="background-image: -webkit-linear-gradient(#d9534f, #d64843 60%, #922420)">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <i class="fa fa-support fa-5x"></i>
+                                </div>
+
+                                <div style="padding-right: 18px">
+                                    <div class="huge" style="font-size: 28px">$unpaidSum $templateUtils.getTranslation("NIS",$lang)</div>
+                                    <div style="padding-right: 50px;">$templateUtils.getTranslation("unpaid.sum",$lang)</div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <a href="#">
+                            <div class="panel-footer">
+                                <span class="pull-left">$templateUtils.getTranslation("details",$lang)</span>
+                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                <div class="clearfix"></div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- /.row -->
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title"><i class="fa fa-bar-chart-o fa-fw"></i> $templateUtils.getTranslation("invoices",$lang)</h3>
+                        </div>
+                        <div class="panel-body">
+                            <div id="morris-area-chart"></div>
+
+                            <h3 class="panel-title"><i class="fa fa-money fa-fw"></i> </h3>
+                            <div class="panel-body">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered table-hover table-striped">
+                                        <thead>
+                                        <tr>
+                                            <th>$templateUtils.getTranslation("invoice.number",$lang)</th>
+                                            <th>$templateUtils.getTranslation("details",$lang)</th>
+                                            <th>$templateUtils.getTranslation("date",$lang)</th>
+                                            <th>$templateUtils.getTranslation("total",$lang)</th>
+                                            <th>$templateUtils.getTranslation("paid.not.paid",$lang)</th>
+                                            <th></th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                            #foreach ($invoice in $invoices)
+                                            <tr>
+                                                <td>$invoice.invoiceNum</td>
+                                                    <td>$templateUtils.getTranslation($invoice.details,$lang)</td>
+                                                <td>$templateUtils.formatDateExcludeTime($invoice.date)</td>
+                                                <td>$invoice.total</td>
+                                                <td >
+                                                    <span #if ($invoice.paid)  style="background-color: #45b6af; padding: 2px; color: white; font-weight: bold" #else style="background-color:  #d9534f; padding: 2px; color: white; font-weight: bold" #end>
+                                                        #if ($invoice.paid) <a style="color: white !important;" href="/invoice.pdf">$templateUtils.getTranslation("paid")</a>  #else $templateUtils.getTranslation("not.paid",$lang) #end
+                                                    </span>
+                                                </td>
+                                                <td>#if(!$invoice.paid)<button class="payButton btn btn-default" style="padding-left: 8px; padding-right: 8px; padding-bottom: 0px; padding-top: 0px"  total="$invoice.total" invoiceId="$invoice.oid" >$templateUtils.getTranslation("go.to.payment",$lang)</button>#end </td>
+                                            </tr>
+                                            #end
+                                        </tbody>
+                                    </table>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.container-fluid -->
+
+    </div>
+    <!-- /#page-wrapper -->
+
+</div>
+
+<div style="display: none" id="changesSaved" saved="true"></div>
+<!-- /#wrapper -->
+
+</body>
+
+
+</html>
+

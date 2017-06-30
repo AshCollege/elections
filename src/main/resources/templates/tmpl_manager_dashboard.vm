@@ -1,0 +1,379 @@
+###* @vtlvariable name="invoices" type="java.util.ArrayList<com.example.Objects.Entities.InvoiceObject>" *#
+###* @vtlvariable name="consumers" type="java.util.ArrayList<com.example.Objects.Entities.ConsumerObject>" *#
+
+#* @vtlvariable name="templateUtils" type="com.example.Utils.TemplateUtils" *#
+#* @vtlvariable name="lang" type="java.lang.Integer" *#
+#* @vtlvariable name="pageName" type="java.lang.String" *#
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>$templateUtils.getTranslation($pageName,$lang)</title>
+    #parse("css.vm")
+    #parse("scripts.vm")
+
+</head>
+
+<body>
+
+<div id="wrapper" style="padding-right: 135px">
+
+    #parse("main_navbar.vm")
+
+    <div id="page-wrapper">
+
+        <div class="container-fluid">
+
+            <!-- Page Heading -->
+            <div class="row">
+                <div class="col-lg-12">`
+                    <h1 class="page-header">
+                        <small>$templateUtils.getTranslation("dashboard",$lang)</small>
+                    </h1>
+                    <h3>
+                        $templateUtils.getTranslation("hello",$lang)
+                        $consumer.name,
+                    </h3>
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading"
+                             style="background-image: -webkit-linear-gradient(#337ab7, #3277b3 60%, #224f77)">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <i class="fa fa-comments fa-5x"></i>
+                                </div>
+                                <div style="padding-right: 18px">
+                                    <div class="huge" style="font-size: 24px">$templateUtils.getTranslation(
+                                        "general",$lang)</div>
+                                    <div style="padding-right: 50px; font-size: 17px">$templateUtils.getTranslation("date",$lang)</div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#">
+                            <div class="panel-footer">
+                                <span class="pull-left">$templateUtils.getTranslation("today",$lang)</span>
+                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                <div class="clearfix"></div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="panel panel-green">
+                        <div class="panel-heading"
+                             style="background-image: -webkit-linear-gradient(#5cb85c, #4eb14e 60%, #367c36)">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <i class="fa fa-tasks fa-5x"></i>
+                                </div>
+                                <div class="col-xs-9 text-right">
+                                    <div class="huge" style="font-size: 24px">$templateUtils.getTranslation(
+                                        "consumption",$lang)</div>
+                                    <div style="font-size: 17px">$templateUtils.getTranslation("reports",$lang)</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <a href="consumpsion-report?year=$currentYear">
+                            <div class="panel-footer">
+                                <span class="pull-left">$templateUtils.getTranslation("show",$lang)</span>
+                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                <div class="clearfix"></div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="panel panel-yellow">
+                        <div class="panel-heading"
+                             style="background-image: -webkit-linear-gradient(#f0ad4e, #efa743 60%, #bc7410)">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <i class="fa fa-shopping-cart fa-5x"></i>
+                                </div>
+                                <div class="col-xs-9 text-right">
+                                    <div class="huge" style="font-size: 28px">$templateUtils.getTranslation(
+                                        "consumers",$lang)</div>
+                                    <div style="font-size: 17px">$consumers.size()</div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="/temporary">
+                            <div class="panel-footer">
+                                <span class="pull-left">$templateUtils.getTranslation("show",$lang)</span>
+                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                <div class="clearfix"></div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="panel panel-red">
+                        <div class="panel-heading"
+                             style="background-image: -webkit-linear-gradient(#d9534f, #d64843 60%, #922420)">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <i class="fa fa-support fa-5x"></i>
+                                </div>
+                                <div class="col-xs-9 text-right">
+                                ## <div class="huge" style="font-size: 20.835px">$templateUtils.getTranslation("expected.revenues",$lang): $allDebts</div>
+                                    <div class="huge" style="font-size: 24px">
+                                        $templateUtils.getTranslation("not.paid.debts",$lang)</div>
+                                    <div style="font-size: 17px">$notPaidDebts $templateUtils.getTranslation("NIS",$lang)</div>
+
+                                ##     <div>$templateUtils.getTranslation("association",$lang)</div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="/client-details">
+                            <div class="panel-footer">
+                                <span class="pull-left">$templateUtils.getTranslation("client.details",$lang)</span>
+                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                <div class="clearfix"></div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- /.row -->
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title"><i
+                                    class="fa fa-bar-chart-o fa-fw"></i> $templateUtils.getTranslation("invoices",$lang)</h3>
+                        </div>
+                        <div class="panel-body">
+                            <div id="morris-area-chart"></div>
+
+
+                            <span style="font-weight: bold">  $templateUtils.getTranslation("num.of.invoices",$lang)
+                                :</span> $invoicesNum
+                            <br>
+                            <span style="font-weight: bold">  $templateUtils.getTranslation("num.of.paid.invoices",$lang)
+                                :</span> $paidInvoicesNum
+                            <br>
+                            <span style="font-weight: bold"> $templateUtils.getTranslation("num.of.unpaid.invoices",$lang)
+                                :</span> $unPaidInvoicesNum
+
+                            <br>
+                            <br>
+
+
+                            <select class="selectpicker" id="searchStatus" data-live-search="true">####???/dataliive
+
+                                <option data-tokens="all" selected="selected" value="all">$templateUtils.getTranslation(
+                                    "all.invoices",$lang)</option>
+                                <option data-tokens="paid" value="paid">$templateUtils.getTranslation(
+                                    "paid.invoices",$lang)</option>
+                                <option data-tokens="unpaid" value="unpaid">$templateUtils.getTranslation(
+                                    "unpaid.invoices",$lang)</option>
+                            </select>
+                            <br>
+                            <br>
+                            <div class="row">
+                                <div class="col-lg-2">
+                                    <input class="form-control" type="number" id="searchLowInvoiceNum"
+                                           placeholder='$templateUtils.getTranslation("*.invoice.num",$lang)'/>
+                                </div>
+                                <div class="col-lg-2">
+                                    <input class="form-control" type="number" id="searchHighInvoiceNum"
+                                           placeholder='$templateUtils.getTranslation("to.invoice.num",$lang)'/>
+                                </div>
+                                <div class="col-lg-2">
+                                    <input class="form-control" type="number" id="searchLowConsumerUid"
+                                           placeholder='$templateUtils.getTranslation("*.consumer.num",$lang)'/>
+                                </div>
+                                <div class="col-lg-2">
+                                    <input class="form-control" type="number" id="searchHighConsumerUid"
+                                           placeholder='$templateUtils.getTranslation("to.consumer.num",$lang)'/>
+                                </div>
+                                <div class="col-lg-2">
+                                    <input class="form-control" type="number" id="searchLowTotal"
+
+                                           placeholder='$templateUtils.getTranslation("*.total",$lang)'/>
+                                </div>
+                                <div class="col-lg-2">
+                                    <input class="form-control" type="number" id="searchHighTotal"
+
+                                           placeholder='$templateUtils.getTranslation("to.total",$lang)'/>
+                                </div>
+                                <div class="col-lg-2">
+                                    <input class="form-control" type="date" id="searchLowDate"
+                                    ##                                           placeholder="$templateUtils.formatDateExcludeTime($today)"
+                                           value="$templateUtils.formatDateExcludeTime($today)"/>
+                                </div>
+                                <div class="col-lg-2">
+                                    <input class="form-control" type="date" id="searchHighDate"
+                                    ##                                           placeholder="$templateUtils.formatDateExcludeTime($today)"
+                                           value="$templateUtils.formatDateExcludeTime($today)"/>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-lg-2">
+                                    <input class="form-control" type="number" id="searchLowRun"
+                                           placeholder='$templateUtils.getTranslation("run",$lang)'/>
+                                </div>
+                                <div class="col-lg-2">
+                                    <input class="form-control" type="number" id="searchHighRun"
+                                           placeholder='$templateUtils.getTranslation("run",$lang)'/>
+                                </div>
+                                <div class="col-lg-2">
+                                    <input class="form-control" type="number" id="searchMonth"
+                                           placeholder='$templateUtils.getTranslation("month",$lang)'/>
+                                </div>
+                                <div class="col-lg-2">
+                                    <input class="form-control" type="number" id="searchYear"
+                                           placeholder='$templateUtils.getTranslation("year",$lang)'/>
+                                </div>
+
+
+                            ##                                <div dir="rtl">
+                            ##                                    <div class="col-lg-2">
+                            ##                                        <div>
+                            ##                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                            ##                                               aria-expanded="true">$templateUtils.getTranslation("pay.status") <b
+                            ##                                                    class="caret"></b></a>
+                            ##                                            <ul style="width: 100%" class="dropdown-menu">
+                            ##                                                <li dir="rtl"><a class="clients-dropdown-item" value="all" dir="rtl"
+                            ##                                                                 href="#">$templateUtils.getTranslation(
+                            ##                                                    "all.invoices")</a></li>
+                            ##                                                <li dir="rtl"><a class="clients-dropdown-item" value="paid" dir="rtl"
+                            ##                                                                 href="#">$templateUtils.getTranslation(
+                            ##                                                    "paid.invoices")</a></li>
+                            ##                                                <li dir="rtl"><a class="clients-dropdown-item" value="unpaid" dir="rtl"
+                            ##                                                                 href="#">$templateUtils.getTranslation(
+                            ##                                                    "unpaid.invoices")</a></li>
+                            ##
+                            ##                                            </ul>
+                            ##                                        </div>
+                            ##                                    </div>
+                            ##                                </div>
+
+                            ##
+                            ##                                <div class="col-lg-2">
+                            ##
+                            ##                                    <select class="selectpicker" id="showInvoices" data-live-search="true">
+                            ##
+                            ##                                        <option data-tokens="all"
+                            ##                                                value="all">$templateUtils.getTranslation(
+                            ##                                            "all.invoices")</option>
+                            ##                                        <option data-tokens="paid" selected="selected" value="paid">$templateUtils.getTranslation(
+                            ##                                            "paid.invoices")</option>
+                            ##                                        <option data-tokens="unpaid" value="unpaid">$templateUtils.getTranslation(
+                            ##                                            "unpaid.invoices")</option>
+                            ##                                    </select>
+                            ##                                </div>
+                            ##
+
+                            ##                                <div class="form-group">
+                            ##                                    <input disabled class="form-control" placeholder="$templateUtils.getTranslation('client.name')" name="client" class="input" id="client" type="text" value="">
+                            ##                                </div>
+
+                                <div class="col-lg-2">
+                                    <input class="form-control" type="number" id="searchPaymentConfirmation"
+                                           placeholder='$templateUtils.getTranslation("payment.confirmation",$lang)'/>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="col-lg-2">
+                                <button type="button" class="btn btn-info" id="searchInvoices"
+                                        style="">$templateUtils.getTranslation("search",$lang)</button>
+                            </div>
+                            <br>
+                            <div id="resultsNum" style="display: none"></div>
+                            </div>
+
+                            <br>
+                            <br>
+                        ##                            <div class="col-lg-8">
+                        ##                                <input class="form-control" type="text" id="searchStatus" placeholder="$templateUtils.getTranslation("pay.status")"/>
+                        ##                            </div>
+                        ####
+                        ##<br>
+                        ##                            <div id="searchResult"> ??????????
+                        ##                                <table id="searchResultTable">
+                        ##
+                        ##                                </table>
+                        ##                            </div>
+
+                            <h3 class="panel-title"><i class="fa fa-money fa-fw"></i></h3>
+                            <div class="panel-body" id="invoicesTable">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered table-hover table-striped" id="allInvoicesTable">
+                                        <thead>
+                                        <tr>
+                                            <th>$templateUtils.getTranslation("consumer.name",$lang)</th>
+                                            <th>$templateUtils.getTranslation("consumer.number",$lang)</th>
+                                            <th>$templateUtils.getTranslation("invoice.numer",$lang)</th>
+                                            <th>$templateUtils.getTranslation("total",$lang)</th>
+                                            <th>$templateUtils.getTranslation("date",$lang)</th>
+                                            <th>$templateUtils.getTranslation("payment.confirmation",$lang)</th>
+                                            <th>$templateUtils.getTranslation("paid.not.paid",$lang)</th>
+                                            <th>$templateUtils.getTranslation("payment.date",$lang)</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                            #foreach ($invoice in $invoices)
+                                            <tr id="invoiceId-$invoice.oid" #if($invoice.paid)
+                                                class="paid invoice-row" #else
+                                                class="unpaid invoice-row" #end>
+                                                <td>$invoice.consumerObject.name</td>
+                                                <td>$invoice.consumerObject.consumerNum</td>
+                                                <td>$invoice.invoiceNum</td>
+                                                <td>$invoice.total</td>
+                                                <td>$templateUtils.formatDateExcludeTime($invoice.date)</td>
+                                                <td>$invoice.paymentConfirmation</td>
+                                                <td>
+                                                <span #if ($invoice.paid)
+                                                        style="background-color: #45b6af; padding: 2px; color: white; font-weight: bold" #else
+                                                        style="background-color:  #d9534f; padding: 2px; color: white; font-weight: bold" #end>
+                                                    #if ($invoice.paid) <a style="color: white !important;"
+                                                                           href="/invoice.pdf">$templateUtils.getTranslation(
+                                                        "paid",$lang)</a>  #else $templateUtils.getTranslation(
+                                                        "not.paid",$lang) #end
+                                                    </span>
+                                                </td>
+                                                <td>$templateUtils.formatDateExcludeTime($invoice.date)</td>
+                                            </tr>
+
+                                            ##                                            #end
+                                            #end
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div id="no-matching-results" style="display: none">$templateUtils.getTranslation(
+                                    "no.matching.results",$lang)</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /.container-fluid -->
+
+        </div>
+        <!-- /#page-wrapper -->
+
+    </div>
+
+    <div style="display: none" id="changesSaved" saved="true"></div>
+    <!-- /#wrapper -->
+
+</body>
+
+
+</html>
+

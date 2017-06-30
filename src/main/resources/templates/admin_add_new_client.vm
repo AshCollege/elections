@@ -1,0 +1,159 @@
+#* @vtlvariable name="templateUtils" type="com.example.Utils.TemplateUtils" *#
+#* @vtlvariable name="clients" type="java.util.ArrayList<com.example.Objects.Entities.MemadClientObject>" *#
+#* @vtlvariable name="lang" type="java.lang.Integer" *#
+#* @vtlvariable name="pageName" type="java.lang.String" *#
+
+<div>
+
+    <div class="row">
+        <button id="addNewClientFormButton" type="button" class="btn btn-default" style="margin-right: 25px; margin-top: 20px">
+            $templateUtils.getTranslation("show.add.new.client.form",$lang)
+        </button>
+    </div>
+
+
+
+    <div class="row pushup" id="addNewClientForm" hidden>
+        <div class="container-fluid">
+
+            <!-- Page Heading -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">
+                        <small>$templateUtils.getTranslation("add.new.client",$lang)</small>
+                    </h1>
+                </div>
+            </div>
+
+            <div class="alert alert-info col-lg-7">
+                <table>
+                    <tbody>
+                    <tr>
+                        <td class="add-client-key-td">
+                            <label>$templateUtils.getTranslation("association",$lang)</label>
+                        </td>
+                        <td class="add-client-value-td">
+                            <div class="form-group">
+                                <input class="form-control" type="text" id="clientName">
+                            </div>
+                        </td>
+                    </tr>
+
+                    ##                    <tr>
+                    ##                        <td class="add-client-key-td">
+                    ##                            <label>$templateUtils.getTranslation("client.num",$lang)</label>
+                    ##                        </td>
+                    ##                        <td class="add-client-value-td">
+                    ##                            <div class="form-group">
+                    ##                                <input class="form-control" type="number" id="clientNum">
+                    ##                            </div>
+                    ##                        </td>
+                    ##                    </tr>
+                    ##
+                    <tr>
+                        <td class="add-client-key-td">
+                            <label>$templateUtils.getTranslation("terminal",$lang)</label>
+                        </td>
+                        <td class="add-client-value-td">
+                            <div class="form-group">
+                                <input class="form-control" type="number" id="clientTerminal">
+                            </div>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td class="add-client-key-td">
+                            <label>$templateUtils.getTranslation("full.name",$lang) </label>
+                        </td>
+                        <td class="add-client-value-td">
+                            <div class="form-group">
+                                <input class="form-control" type="text" id="clientFullName">
+                            </div>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td class="add-client-key-td">
+                            <label>$templateUtils.getTranslation("address",$lang)</label>
+                        </td>
+                        <td class="add-client-value-td">
+                            <div class="form-group">
+                                <input class="form-control" type="text" id="clientAddress">
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="add-client-key-td">
+                            <label>$templateUtils.getTranslation("zip",$lang)</label>
+                        </td>
+                        <td class="add-client-value-td">
+                            <div class="form-group">
+                                <input class="form-control" type="number" id="clientZipCode">
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="add-client-key-td">
+                            <label>$templateUtils.getTranslation("H.P",$lang)</label>
+                        </td>
+                        <td class="add-client-value-td">
+                            <div class="form-group">
+                                <input class="form-control" type="number" id="clientHP">
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="add-client-key-td">
+                            <label>$templateUtils.getTranslation("telephone",$lang)</label>
+                        </td>
+                        <td class="add-client-value-td">
+                            <div class="form-group">
+                                <input class="form-control" type="text" id="clientPhoneNumber">
+                            </div>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td class="add-client-key-td">
+                            <label>$templateUtils.getTranslation("fax",$lang)</label>
+                        </td>
+                        <td class="add-client-value-td">
+                            <div class="form-group">
+                                <input class="form-control" type="text" id="clientFaxNumber">
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="add-client-key-td">
+                            <label>$templateUtils.getTranslation("mail",$lang)</label>
+                        </td>
+                        <td class="add-client-value-td">
+                            <div class=form-group">
+                                <input class="form-control" type="email" id="clientMail">
+                            </div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <br/>
+                <div class="row">
+                    <p style="padding-right: 10px">
+                        <button type="button" class="btn btn-info" id="addNewClientButton">$templateUtils.getTranslation("add",$lang)</button>
+                    </p>
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

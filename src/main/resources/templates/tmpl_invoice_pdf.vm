@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head dir="rtl">
+    <meta charset="UTF-8"></meta>
+    <title>home</title>
+    <style>
+        h2 {color:darkblue;}
+        body {
+            font-family: Arial;
+        }
+    </style>
+</head>
+<body dir="rtl">
+<div style="font-weight: bold; font-size: 40px">Invoice</div>
+<div>Name: $name</div>
+<div>Month: $month</div>
+<div>Total: $total</div>
+<div>אאאבעדע</div>
+
+</body>
+</html>

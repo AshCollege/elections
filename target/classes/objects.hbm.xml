@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+
+    <class name="com.example.Objects.Entities.InvoiceObject" table="invoices" lazy="false">
+        <id name="oid" type="java.lang.Integer" column="oid">
+            <generator class="native"/>
+        </id>
+        <property name="invoiceNum" column="invoice_num" type="java.lang.Integer"/>
+        <property name="details" column="details" type="string"/>
+        <property name="consumption" column="consumption" type="java.lang.Integer"/>
+        <many-to-one name="consumerObject" column="consumer"
+                     class="com.example.Objects.Entities.ConsumerObject"/>
+        <property name="total" column="total" type="java.lang.Integer"/>
+        <many-to-one name="clientObject" column="client"
+                     class="com.example.Objects.Entities.MemadClientObject"/>
+        <property name="date" column="date" type="java.util.Date"/>
+        <property name="run" column="run" type="int"/>
+        <property name="month" column="month" type="int"/>
+        <property name="year" column="year" type="int"/>
+        <property name="paid" column="paid" type="boolean"/>
+        <property name="paymentConfirmation" column="payment_confirmation" type="java.lang.Integer"/>
+        <property name="mail" column="mail" type="string"/>
+        <property name="packet" column="packet" type="java.lang.Integer"/>
+        <property name="paymentDate" column="payment_date" type="java.util.Date"/>
+        <property name="paidAmount" column="paid_amount" type="java.lang.Integer"/>
+        <property name="cardType" column="card_type" type="string"/>
+        <property name="transactionApproval" column="transaction_approval" type="string"/>
+        <property  name="emailSent" type="boolean">
+            <column name="email_sent"  default="false"/>
+        </property>
+
+
+
+
+    </class>
+
+    <class name="com.example.Objects.Entities.ConsumerObject" table="consumers" lazy="false">
+        <id name="uid" type="java.lang.Integer" column="uid">
+            <generator class="native"/>
+        </id>
+        <property name="consumerNum"  type="java.lang.Integer" column="consumer_num"/>
+        <property name="name"  type="string" column="name"/>
+        <many-to-one name="memadClientObject" column="client"
+                   class="com.example.Objects.Entities.MemadClientObject"/>
+        <property  name="manager" type="boolean">
+            <column name="manager"  default="false"/>
+        </property>
+        <property  name="lang" type="int">
+            <column name="lang"  default="0"/>
+        </property>
+        <property  name="allowEmail" type="boolean">
+            <column name="allow_email"  default="false"/>
+        </property>
+        <property name="email"  type="string" column="email"/>
+    </class>
+
+
+    <class name="com.example.Objects.Entities.MemadClientObject" table="memad_clients" lazy="false">
+        <id name="oid" type="int" column="oid">
+            <generator class="native"/>
+        </id>
+        <property name="name" column="name" type="string"/>
+        <property name="address" column="address" type="string"/>
+        <property name="zipCode" column="zip_code" type="int"/>
+        <property name="telephoneNum" column="telephone_num" type="string"/>
+        <property name="faxNum" column="fax_num" type="string"/>
+        <property name="mail" column="mail" type="string"/>
+        <property name="terminal" column="terminal" type="string"/>
+        <property name="fullName" column="fullName" type="string"/>
+        <property name="hp" column="hp" type="string"/>
+        <property name="toShow" column="to_show" type="boolean"/>
+        <property name="startYear" column="start_year" type="int"/>
+
+    </class>
+
+
+    <class name="com.example.Objects.Entities.ConfigObject" table="config">
+        <id name="oid" type="int" column="oid">
+            <generator class="native"/>
+        </id>
+        <property name="configKey" type="string" column="config_key"/>
+        <property name="configValue" type="string" column="config_value"/>
+    </class>
+
+
+    <class name="com.example.Objects.Entities.TranslationObject" table="translations" lazy="false">
+        <id name="oid" type="int" column="oid">
+            <generator class="native"/>
+        </id>
+        <property name="translationKey" column="translation_key" type="string"/>
+        <property name="translationValue" column="translation_value" type="string"/>
+        <property name="en" column="en" type="string"/>
+    </class>
+
+    <class name="com.example.Objects.Entities.FaqObject" table="faq">
+        <id name="oid" type="int" column="oid">
+            <generator class="native"/>
+        </id>
+        <property name="question" type="string" column="question"/>
+        <property name="answer" type="string" column="answer"/>
+    </class>
+
+    <class name="com.example.Objects.Entities.LangObject" table="languages">
+        <id name="oid" type="int" column="oid">
+            <generator class="native"/>
+        </id>
+        <property name="code" type="int" column="code"/>
+        <property name="name" type="string" column="name"/>
+        <property  name="active" type="boolean">
+            <column name="active"  default="false"/>
+        </property>
+
+    </class>
+
+
+
+</hibernate-mapping>

@@ -1,0 +1,99 @@
+#* @vtlvariable name="templateUtils" type="com.example.Utils.TemplateUtils" *#
+#* @vtlvariable name="clients" type="java.util.ArrayList<com.example.Objects.Entities.MemadClientObject>" *#
+#* @vtlvariable name="lang" type="java.lang.Integer" *#
+#* @vtlvariable name="pageName" type="java.lang.String" *#
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>$templateUtils.getTranslation($pageName,$lang)</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Morris Charts CSS -->
+    <link href="css/plugins/morris.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="/scripts/main.js"></script>
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <div>
+        <img style="box-shadow: 0px 8px 7px #d3d3d3; margin: 50px" src="http://memad.biz/img/headr.jpg" alt="" class="img-responsive img_logo ">
+        <div class="col-md-4 col-md-offset-4">
+            <div class="login-panel panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">$templateUtils.getTranslation("please.enter.invoice.details",$lang)</h3>
+                </div>
+                <div class="panel-body">
+                    <form role="form" id="loginForm" action="/login" method="post">
+                        <fieldset>
+                            <div class="row" dir="rtl">
+                                <div class="col-lg-12">
+                                    <div>
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">$templateUtils.getTranslation("click.to.choose.client",$lang) <b class="caret"></b></a>
+                                        <ul style="width: 100%" class="dropdown-menu">
+                                            #foreach ($client in $clients)
+                                                #if ($client.toShow)
+                                                    <li dir="rtl"><a class="clients-dropdown-item" client-oid="$client.oid" dir="rtl" href="#">$client.name</a></li>
+                                                #end
+                                            #end
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <input disabled class="form-control" placeholder="$templateUtils.getTranslation('client.name',$lang)" name="client" class="input" id="client" type="text" value="">
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" placeholder="$templateUtils.getTranslation('consumer.number',$lang)" name="consumer" class="input" id="consumer" type="text" value="">
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" placeholder="$templateUtils.getTranslation('invoice.number',$lang)" name="invoice" class="input" id="invoic" type="text" value="">
+                            </div>
+                            <div>
+                                #if ($errorMessage)
+                                    $templateUtils.getTranslation($errorMessage,$lang)
+                                #end
+                            </div>
+##                            <div dir="ltr">
+##                                <div class="col-md-6">
+##                                    <div class="dropdown">
+##                                        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Dropdown Example
+##                                            <span class="caret"></span></button>
+##                                    </div>
+##                                </div>
+##                            </div>
+                            <input name="clientOid" id="clientOid" type="text" hidden>
+                            <input type="submit" value="$templateUtils.getTranslation('login',$lang)" class="btn btn-lg btn-success btn-block" id="loginButton"/>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+
+</html>

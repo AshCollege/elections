@@ -1,0 +1,47 @@
+#* @vtlvariable name="pageName" type="java.lang.String" *#
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"></meta>
+    <title></title>
+</head>
+<body>
+##<div style="width:100%"><center><img src="images/loading.gif" width="400" height="400" alt=""/></center></div>
+<div style="visibility:hidden" >
+    <form id="form4" name="form4" action="https://gateWay.pelecard.biz/PayProcess" method="post">
+    </form>
+</div>
+
+<script  type="text/javascript">
+    function submitForm() {
+        var params = {
+            userName:"${userName}",
+            password:"${password}",
+            termNo :"${termNo}",
+            total :"${total}",
+            currency :"${currency}",
+            maxPayments :"${maxPayments}",
+            minPaymentsNo :"${minPaymentsNo}",
+            creditTypeFrom :"${creditTypeFrom}",
+            goodUrl :"${goodUrl}",
+            errorUrl :"${errorUrl}",
+            headText :"${headText}",
+            id :"${Id}",
+            parmx :"${parmx}",
+        }
+
+        var form = document.getElementById("form4");
+        for(var key in params) {
+            var hiddenField = document.createElement("input");
+            hiddenField.setAttribute("type", "hidden");
+            hiddenField.setAttribute("name", key);
+            hiddenField.setAttribute("value", params[key]);
+
+            form.appendChild(hiddenField);
+        }
+        form.submit();
+    }
+    submitForm();
+</script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+#* @vtlvariable name="templateUtils" type="com.example.Utils.TemplateUtils" *#
+#* @vtlvariable name="lang" type="java.lang.Integer" *#
+#* @vtlvariable name="pageName" type="java.lang.String" *#
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>$templateUtils.getTranslation($pageName,$lang)</title>
+    #parse( "css.vm" )
+    #parse( "scripts.vm" )
+</head>
+
+<body>
+
+<div id="wrapper" style="padding-right: 135px">
+
+    #parse( "main_navbar.vm" )
+
+    <div id="page-wrapper">
+
+        <div class="container-fluid">
+
+            <!-- Page Heading -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">
+                        <small>$templateUtils.getTranslation($pageName,$lang)</small>
+                    </h1>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-lg-6">
+
+
+                </div>
+                <div class="col-lg-6">
+
+                </div>
+            </div>
+
+       </div>
+
+    </div>
+
+</div>
+
+
+</body>
+
+</html>

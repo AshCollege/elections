@@ -1,0 +1,39 @@
+#* @vtlvariable name="templateUtils" type="com.example.Utils.TemplateUtils" *#
+#* @vtlvariable name="clients" type="java.util.ArrayList<com.example.Objects.Entities.MemadClientObject>" *#
+#* @vtlvariable name="lang" type="java.lang.Integer" *#
+#* @vtlvariable name="pageName" type="java.lang.String" *#
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>$templateUtils.getTranslation($pageName)</title>
+    #parse( "css.vm" )
+    #parse( "scripts.vm" )
+</head>
+<body>
+
+<div id="wrapper" style="padding-right: 160px">
+    #parse( "main_navbar.vm" )
+    <div id="page-wrapper">
+
+        <div class="row">
+            <h1 class="page-header">
+                <small>$templateUtils.getTranslation($pageName)</small>
+            </h1>
+        </div>
+
+        #parse("admin_manage_clients.vm")
+
+        #parse("admin_add_new_client.vm")
+
+        #parse("admin_import.vm")
+
+        #parse("admin_general.vm")
+
+    </div>
+</div>
+</body>
+</html>
+

@@ -1,0 +1,44 @@
+#* @vtlvariable name="templateUtils" type="com.example.Utils.TemplateUtils" *#
+#* @vtlvariable name="lang" type="java.lang.Integer" *#
+#* @vtlvariable name="pageName" type="java.lang.String" *#
+<!-- Navigation -->
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" style="background-image:-webkit-linear-gradient(#04519b, #044687 60%, #033769)">
+    <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+
+    <div class="collapse navbar-collapse navbar-ex1-collapse">
+        <ul class="nav navbar-nav side-nav" style="width: 135px; background-color: #044C92">
+            <li style="height: 55px;">
+                <a href="/dashboard"  #if($pageName=='dashboard') class="section-selected" #else class="right-section-style"  #end ><i class="fa fa-fw fa-table"></i> $templateUtils.getTranslation("dashboard",$lang)</a>
+            </li>
+            <li style="height: 55px;">
+                <a href="/invoices-history" #if($pageName=='invoices.history') class="section-selected" #else class="right-section-style" #end ><i class="fa fa-fw fa-table"></i> $templateUtils.getTranslation("invoices.history",$lang)</a>
+            </li>
+            <li style="height: 55px;">
+                <a href="/private-details" #if($pageName=='private.details') class="section-selected" #else class="right-section-style"  #end ><i class="fa fa-fw fa-table"></i> $templateUtils.getTranslation("private.details",$lang)</a>
+            </li>
+            <li style="height: 55px;">
+                <a href="/client-details" #if($pageName=='client.details') class="section-selected" #else class="right-section-style"  #end ><i class="fa fa-fw fa-table"></i> $templateUtils.getTranslation("client.details",$lang)</a>
+            </li>
+            #if ($consumer.isManager())
+##            <li style="height: 55px;">
+##                <a href="/admin" #if($pageName=='admin') class="section-selected" #else class="right-section-style"  #end ><i class="fa fa-fw fa-table"></i> $templateUtils.getTranslation("admin",$lang)</a>
+##            </li>
+            #end
+            <li style="height: 55px;">
+                <a href="/faq" #if($pageName=='faq') class="section-selected" #else class="right-section-style"  #end ><i class="fa fa-fw fa-table"></i> $templateUtils.getTranslation("faq",$lang)</a>
+            </li>
+            <li style="height: 55px;">
+                <a href="/contact" #if($pageName=='contact') class="section-selected" #else class="right-section-style"  #end ><i class="fa fa-fw fa-table"></i> $templateUtils.getTranslation("contact",$lang)</a>
+            </li>
+            <li style="height: 55px;">
+                <a href="/settings" #if($pageName=='settings') class="section-selected" #else class="right-section-style"  #end ><i class="fa fa-fw fa-table"></i> $templateUtils.getTranslation("settings",$lang)</a>
+            </li>
+            <li style="height: 55px;">
+                <a href="/logout" #if($pageName=='logout') class="section-selected" #else class="right-section-style"  #end ><i class="fa fa-fw fa-table"></i> $templateUtils.getTranslation("logout",$lang)</a>
+            </li>
+
+
+        </ul>
+    </div>
+    <!-- /.navbar-collapse -->
+</nav>
